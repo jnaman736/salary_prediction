@@ -1,64 +1,56 @@
-# Salary Prediction
+# Salary Prediction Analysis
 
-## Introduction
-This project aims to predict salaries based on various factors, such as age, gender, education level, job title, and years of experience. We have used a dataset containing 6704 rows and 6 columns to develop and evaluate our salary prediction model.
+This project aims to predict individual salaries based on demographic and professional attributes using machine learning regression techniques. By analyzing a dataset of over 6,700 professionals, we identify the key factors that influence compensation and compare the effectiveness of different predictive models.
 
-## Data Preprocessing
+## Dataset Overview
+The dataset consists of 6,704 entries with the following features:
+* Age: Age of the individual.
+* Gender: Male, Female, or Other.
+* Education Level: Categorized into High School, Bachelor's, Master's, and PhD.
+* Job Title: Various professional roles across industries.
+* Years of Experience: Total professional tenure.
+* Salary: The target variable for prediction.
 
-### Handling Missing Values
-We checked for missing values in the dataset and removed rows with missing data, ensuring a clean dataset for modeling.
+## Key Features
+* Data Cleaning: Robust handling of missing values and data standardization.
+* Exploratory Data Analysis (EDA): 
+    * Visualizing top 10 highest-earning professions.
+    * Analyzing the correlation between age, experience, and salary.
+    * Distribution analysis of education levels and gender.
+* Machine Learning: Implementation of multiple regression models with hyperparameter tuning via GridSearchCV.
 
-## Data Visualization
+## Model Performance
+We evaluated three primary models to determine the most accurate predictor. The Random Forest Regressor significantly outperformed the others:
 
+| Model | R-Squared (R2) | Performance Summary |
+| :--- | :--- | :--- |
+| **Random Forest** | **0.971** | **Best Accuracy**: Lowest error rates across MSE, MAE, and RMSE. |
+| **Decision Tree** | 0.941 | Strong performance but slightly less precise than Random Forest. |
+| **Linear Regression** | 0.833 | Good baseline, but struggles with non-linear patterns. |
 
-### Top 10 Highest Earning Professions
-![Gender Distribution](images/Top10.png)
-*A Bar plot depicting the highest paying job titles versus the mean salary.*
-
-### Distribution of Continuous Variables
-![Age Distribution](images/Distribution.png)
-*This histogram shows the distribution of continuous variables in the dataset.*
-
-### Distribution of Education and Gender
-![Salary vs. Education](images/ed&gender_distribution.png)
-*A plot displaying the Education Level and Gender.*
-
-### Correlation Heatmap
-![Correlation Heatmap](images/Heatmap.png)
-*A heatmap illustrating the correlation between different features.*
-
-## Model Building and Evaluation
-
-### Model Selection
-We explored various machine learning algorithms, including Linear Regression, Decision Trees, and Random Forests, to build our salary prediction model. Hyperparameter tuning was performed using GridSearchCV to find the best model configuration.
-
-### Model Evaluation
-
-Each model's performance was evaluated using several regression metrics, including Mean Squared Error (MSE), Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R-squared (R2) score. These metrics help assess the accuracy and reliability of the predictions.
-
-### Feature Importance
-![Feature Importance](images/Feature_Imp.png)
-*A bar chart depicting the importance of different features in predicting salary.*
-
-## Results
-
-1. The Random Forest model achieved the highest R-squared score and the lowest error metrics (MSE, MAE, RMSE), indicating superior predictive performance compared to the other models.
-2. The Decision Tree model also performed well but had higher errors than the Random Forest.
-3. The Linear Regression model, while simple, had the lowest R-squared score and the highest errors, suggesting limitations in capturing complex relationships.
+## Installation and Setup
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/your-username/salary-prediction.git](https://github.com/your-username/salary-prediction.git)
+   cd salary-prediction
+2. **Run the Analysis:** Open the Jupyter Notebook for a step-by-step walkthrough:
+   ```bash
+   jupyter notebook "Salary Prediction.ipynb"
 
 ## Conclusion
 
-In conclusion, the Random Forest model demonstrated the best predictive capability for salary estimation in this dataset. Its feature importance analysis revealed the most influential factors.
+The analysis reveals that **Years of Experience** and **Age** are the most influential factors in salary determination.  
+The **Random Forest** model is the recommended choice for production use due to its high predictive accuracy (**R² = 0.971**).
 
-The model evaluation and feature importance analysis provided valuable insights for understanding salary determinants and highlighted the importance of choosing the appropriate machine learning model for regression tasks.
+This tool can be effectively utilized:
+- By **HR departments** for salary benchmarking  
+- By **individuals** for career planning and growth analysis  
 
-This salary prediction model can be used to make informed salary estimates based on individual characteristics, making it a valuable tool for HR analytics and compensation planning.In conclusion, our salary prediction model, trained on a well-preprocessed dataset, successfully predicts salaries based on various factors. This project demonstrates the importance of data preprocessing, feature engineering, and model selection in creating an accurate predictive model.
+## Requirements
 
-## Usage
-
-To use our salary prediction model, you can follow these steps:
-
-1. Clone this repository.
-2. Install the required libraries listed in the `requirements.txt` file.
-3. Run the provided Jupyter notebook or Python script to load the model and make predictions on new data.
+- Pandas  
+- NumPy  
+- Scikit-learn  
+- Matplotlib  
+- Seaborn  
 
